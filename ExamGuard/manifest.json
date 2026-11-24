@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "ExamGuard Monitor (Prototype)",
+  "version": "0.1.0",
+  "description": "Lets a teacher see which students have joined an online exam and whether they are switching tabs.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ExamGuard"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["https://*.supabase.co/*"]
+}

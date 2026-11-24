@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup">
+  <header><h1>ExamGuard</h1></header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-target="student" role="tab">Student</button>
+    <button class="tab" data-target="teacher" role="tab">Teacher</button>
+  </nav>
+
+  <!-- ================= STUDENT ================= -->
+  <section id="student-section" class="pane">
+    <div id="student-join">
+      <p class="muted" style="margin-top:0">Open your exam page first, then join from that tab.</p>
+      <label for="student-name">Your full name</label>
+      <input id="student-name" type="text" maxlength="60" autocomplete="off">
+      <label for="class-code">Class code from your teacher</label>
+      <input id="class-code" type="text" maxlength="8" autocomplete="off" style="text-transform:uppercase;letter-spacing:3px;font-weight:700">
+      <label class="consent">
+        <input id="consent" type="checkbox">
+        <span>I understand that my teacher will see whether I leave this exam tab. Nothing else is recorded (no screen, keystrokes or page content).</span>
+      </label>
+      <button id="join-btn" class="primary" style="width:100%">Join session</button>
+      <p id="student-error" class="error"></p>
+    </div>
+
+    <div id="student-active" class="hidden">
+      <h2 id="st-class" style="font-size:16px"></h2>
+      <div class="muted">Joined as <b id="st-name"></b></div>
+      <div id="st-status" class="status-big active">On exam tab</div>
+      <p class="muted">Stay on your exam tab until you finish. Switching tabs or windows is visible to your teacher.</p>
+      <button id="leave-btn" style="width:100%">Leave session</button>
+    </div>
+  </section>
+
+  <!-- ================= TEACHER ================= -->
+  <section id="teacher-section" class="pane hidden">
+    <div id="teacher-login">
+      <label for="t-email">Email</label>
+      <input id="t-email" type="email" autocomplete="username">
+      <label for="t-pass">Password</label>
+      <input id="t-pass" type="password" autocomplete="current-password">
+      <div class="row">
+        <button id="login-btn" class="primary">Log in</button>
+        <button id="signup-btn">Create account</button>
+      </div>
+      <p id="teacher-error" class="error"></p>
+    </div>
+
+    <div id="teacher-panel" class="hidden">
+      <div class="row" style="align-items:center;margin-bottom:12px">
+        <span class="muted" id="teacher-email" style="word-break:break-all"></span>
+        <button id="logout-btn" style="flex:0 0 auto;padding:4px 10px">Log out</button>
+      </div>
+      <label for="class-name">New class or exam name</label>
+      <input id="class-name" type="text" maxlength="80" placeholder="e.g. Physics 10-B Midterm">
+      <button id="create-btn" class="primary" style="width:100%">Create class and get code</button>
+      <p id="teacher-error2" class="error"></p>
+      <h3 style="font-size:14px;margin:8px 0">Your classes</h3>
+      <div id="class-list"></div>
+    </div>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

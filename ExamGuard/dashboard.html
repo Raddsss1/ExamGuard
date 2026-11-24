@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ExamGuard Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="dash">
+    <div class="dash-head">
+      <div>
+        <h1 id="class-title">Loading…</h1>
+        <p class="muted" id="updated" style="margin:4px 0 0"></p>
+      </div>
+      <div>
+        <div class="muted" style="margin-bottom:4px">Class code to share with students</div>
+        <div class="code-badge" id="class-code">------</div>
+      </div>
+    </div>
+
+    <div id="banner" class="banner hidden"></div>
+
+    <div class="counts">
+      <div class="count"><b id="n-joined">0</b>Joined</div>
+      <div class="count"><b id="n-active">0</b>On exam tab</div>
+      <div class="count"><b id="n-away">0</b>Changing tabs</div>
+      <div class="count"><b id="n-off">0</b>Offline / left</div>
+    </div>
+
+    <div id="empty" class="empty">No students yet. Share the class code and they will appear here.</div>
+
+    <table id="roster" class="hidden">
+      <thead>
+        <tr>
+          <th>Student name</th>
+          <th>Status</th>
+          <th>Time joined</th>
+          <th class="hide-sm">Tab switches</th>
+          <th class="hide-sm">Last event</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <div id="log" class="log hidden">
+      <h3 id="log-title"></h3>
+      <ul id="log-list"></ul>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
